@@ -1,0 +1,27 @@
+package com.bhavesh.aerospikeexample.service;
+import com.bhavesh.aerospikeexample.model.LivePrice;
+import com.bhavesh.aerospikeexample.repository.LivePriceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class LivePriceService {
+
+    @Autowired
+    private LivePriceRepository livePriceRepository;
+
+    public List<LivePrice> getAll() {
+        List<LivePrice> livePrices = new ArrayList<>();
+        livePriceRepository.findAll()
+                .forEach(livePrices::add);
+        return livePrices;
+    }
+
+    public void create(LivePrice livePrice) {
+        livePriceRepository.save(livePrice);
+    }
+}
