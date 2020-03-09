@@ -4,7 +4,6 @@ import com.bhavesh.aerospikeexample.model.LivePrice;
 import com.bhavesh.aerospikeexample.service.LivePriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -13,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/liveprice")
 @EnableAutoConfiguration
-@Component
 public class LivePriceResource {
 
     @Autowired

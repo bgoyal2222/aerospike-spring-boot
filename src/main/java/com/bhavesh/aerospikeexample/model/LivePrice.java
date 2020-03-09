@@ -1,11 +1,9 @@
 package com.bhavesh.aerospikeexample.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
-@Component
 public class LivePrice {
     @Id
     private String id;

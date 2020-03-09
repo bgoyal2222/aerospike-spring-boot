@@ -11,18 +11,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableAerospikeRepositories(basePackages = "com.bhavesh.aerospikeexample.repository")
-public class AerospikeConfig {
+public class AerospikeConfig<destroyMethod> {
 
     @Bean
     public AerospikeTemplate aerospikeTemplate() {
         return new AerospikeTemplate(aerospikeClient(), "test");
     }
 
-    @Bean
+    @Bean(destroyMethod = "close")
     public AerospikeClient aerospikeClient() {
         ClientPolicy clientPolicy = new ClientPolicy();
         clientPolicy.failIfNotConnected = true;
-        return new AerospikeClient(clientPolicy,  "localhost", 8081);
+        //return new AerospikeClient(clientPolicy,  "192.168.168.58", 3000);
+        return new AerospikeClient(clientPolicy,  "192.168.99.101", 3000);
     }
 
 }
