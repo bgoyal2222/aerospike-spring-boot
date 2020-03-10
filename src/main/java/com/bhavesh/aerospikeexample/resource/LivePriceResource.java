@@ -35,4 +35,12 @@ public class LivePriceResource {
 
         return livePriceService.getAll();
     }
+
+    @PostMapping("list")
+    public List<LivePrice> createList(@RequestBody final ArrayList<LivePrice> livePricelist){
+
+        livePriceService.createMany(livePricelist);
+
+        return livePriceService.getAll();
+    }
 }

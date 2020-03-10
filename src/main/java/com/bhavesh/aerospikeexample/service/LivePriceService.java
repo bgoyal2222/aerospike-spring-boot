@@ -31,4 +31,8 @@ public class LivePriceService {
     public void create(LivePrice livePrice) {
         livePriceRepository.save(livePrice);
     }
+
+    public void createMany(ArrayList<LivePrice> livePrice) {
+        livePriceRepository.saveAll(livePrice);
+    }
 }
