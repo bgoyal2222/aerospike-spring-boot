@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,10 @@ public class LivePriceResource {
         return livePriceService.getAll();
     }
 
+    @PostMapping("id")
+    public List<LivePrice> create(@RequestBody final ArrayList<String> id){
+        return livePriceService.getAllById(id);
+    }
 
     @PostMapping
     public List<LivePrice> create(@RequestBody final LivePrice livePrice){

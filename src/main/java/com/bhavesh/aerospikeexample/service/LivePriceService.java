@@ -21,6 +21,13 @@ public class LivePriceService {
         return livePrices;
     }
 
+    public List<LivePrice> getAllById(ArrayList<String> id) {
+        List<LivePrice> livePrices = new ArrayList<>();
+        livePriceRepository.findAllById(id)
+                .forEach(livePrices::add);
+        return livePrices;
+    }
+
     public void create(LivePrice livePrice) {
         livePriceRepository.save(livePrice);
     }
